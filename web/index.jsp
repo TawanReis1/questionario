@@ -15,13 +15,16 @@
         name = (String) sessions.getAttribute("name");
     
     if (request.getParameter("Sair") != null) {
-        choice = request.getParameter("Sair");
-        
-        if (choice == "Sim") {
-            sessions = request.getSession(false);
-            sessions.invalidate();
-            
-        }
+        sessions = request.getSession();
+        sessions.invalidate();
+//        sessions = request.getSession();
+//        choice = request.getParameter("Sair");
+//        
+//        if (choice == "Sim") {
+//            sessions = request.getSession(false);
+//            sessions.invalidate();
+//            
+//        }
     }    
 %>
 <html>
@@ -34,7 +37,10 @@
         
         <% if (name != null) {%>
            <h1>Olá <%= name%></h1>
-           <h1>Deseja sair? <%= choice%></h1>
+           
+           <p>Clique <a href="quiz.jsp">aqui</a> para realizar o quiz</p>
+           
+           <!--<h1>Deseja sair? <%= choice%></h1>-->
         <% } else { %>
            <h1>Usuário não credenciado</h1>
         <% } %>
